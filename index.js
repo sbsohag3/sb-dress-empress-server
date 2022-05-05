@@ -15,6 +15,7 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverApi: ServerApiVersion.v1,
+  
 });
 
 // http://localhost:5000/
@@ -30,6 +31,17 @@ async function run() {
       const products = await cursor.toArray();
       res.send(products);
     });
+
+    //Crreate Post
+    // http://localhost:5000/login
+
+    app.post('/login', async(req, res)=>{
+      const data = req.body;
+      console.log(data)
+      const result = await productsCollection.insertOne(data)
+      res.send(result)
+    })
+    //Update Post
   } finally {
   }
 }
