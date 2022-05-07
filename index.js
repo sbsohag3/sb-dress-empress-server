@@ -62,6 +62,7 @@ async function run() {
       const product = await productsCollection.findOne(query);
       res.send(product);
     });
+ 
     //Update Post
     //http://localhost:5000/product/62734a5cbb72666b70ce5b5a
 
@@ -101,6 +102,7 @@ async function run() {
     //my all Products
     app.get("/myItems", verifyJWT, async (req, res) => {
       const decodedEmail = req.decoded.email;
+      console.log(decodedEmail);
       const email = req.query.email;
       if (email === decodedEmail) {
         const query = { email: email };
