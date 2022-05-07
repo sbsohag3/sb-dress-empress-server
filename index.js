@@ -23,9 +23,8 @@ function verifyJWT(req, res, next) {
     }
     console.log("decoded", decoded);
     req.decoded = decoded;
-   
   });
-   next();
+  next();
 }
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@sbsohag.2i4yv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -101,7 +100,7 @@ async function run() {
 
     //my all Products
     app.get("/myItems", verifyJWT, async (req, res) => {
-      const decodedEmail = req.decoded.email
+      const decodedEmail = req.decoded.email;
       const email = req.query.email;
       if (email === decodedEmail) {
         const query = { email: email };
