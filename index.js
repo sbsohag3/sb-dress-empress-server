@@ -77,7 +77,7 @@ async function run() {
 
       const updateDoc = {
         $set: {
-          price: data.price,
+          // price: data.price,
           stock: data.stock,
         },
       };
